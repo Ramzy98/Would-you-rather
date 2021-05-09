@@ -1,11 +1,12 @@
 import { Navbar, Dropdown, Image } from "react-bootstrap";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import guest from "../utils/guest.jpg";
 import logo from "../utils/logo.png";
 import { Link } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 const style = {
-  color: "#CEF0D4",
+  color: "#1E90FF",
   fontFamily: "Century Gothic,Lucida Sans",
 };
 class NavBar extends Component {
@@ -23,7 +24,7 @@ class NavBar extends Component {
             />{" "}
             Would you rather
           </Navbar.Brand>
-          <Link to="" style={style} className="nav-link">
+          <Link to="/Home" style={style} className="nav-link">
             Home
           </Link>{" "}
           <Link to="" style={style} className="nav-link">
@@ -34,18 +35,41 @@ class NavBar extends Component {
           </Link>{" "}
           <div className="ml-auto">
             <Dropdown>
-              <Dropdown.Toggle style={style} variant="dark" id="dropdown-basic">
-                <Image
-                  style={{
-                    width: "2rem",
-                    pointerEvents: "none",
-                  }}
-                  size="xs"
-                  src={this.props.users[this.props.authedUser].avatarURL}
-                  roundedCircle
-                />{" "}
-                {this.props.users[this.props.authedUser].name}
-              </Dropdown.Toggle>
+              {this.props.users[this.props.authedUser] ? (
+                <Dropdown.Toggle
+                  style={style}
+                  variant="dark"
+                  id="dropdown-basic"
+                >
+                  <Image
+                    style={{
+                      width: "2rem",
+                      pointerEvents: "none",
+                    }}
+                    size="xs"
+                    src={this.props.users[this.props.authedUser].avatarURL}
+                    roundedCircle
+                  />{" "}
+                  {this.props.users[this.props.authedUser].name}
+                </Dropdown.Toggle>
+              ) : (
+                <Dropdown.Toggle
+                  style={style}
+                  variant="dark"
+                  id="dropdown-basic"
+                >
+                  <Image
+                    style={{
+                      width: "2rem",
+                      pointerEvents: "none",
+                    }}
+                    size="xs"
+                    src={guest}
+                    roundedCircle
+                  />{" "}
+                  Guest
+                </Dropdown.Toggle>
+              )}
               <Dropdown.Menu>
                 <Dropdown.Item href="/">
                   <HiOutlineLogout />

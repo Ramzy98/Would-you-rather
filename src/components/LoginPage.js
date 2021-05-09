@@ -74,7 +74,7 @@ export class LoginPage extends Component {
                       </Dropdown.Menu>
                     </Dropdown>
                   </Form.Group>
-                  <Link to="/Dashboard" className="nav-link">
+                  <Link to="/Home" className="nav-link">
                     {" "}
                     <Button
                       size="lg"
