@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import NavBar from "./NavBar";
+
 class Dashboard extends Component {
+  componentDidMount() {
+    document.title = "Home";
+  }
   render() {
     return (
       <div>
         <NavBar />
-        {console.log(this.props, "sdddddddddddddddddddd")}
       </div>
     );
   }

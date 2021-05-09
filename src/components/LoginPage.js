@@ -13,6 +13,7 @@ export class LoginPage extends Component {
     this.setState({ name: text, id: id });
   }
   componentDidMount() {
+    document.title = "Login";
     this.props.dispatch(handleReceiveUsers());
   }
 
