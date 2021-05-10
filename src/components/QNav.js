@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { getComponent } from "./Dashboard";
 const style = {
   color: "white",
   fontFamily: "Century Gothic,Lucida Sans",
@@ -17,7 +17,13 @@ export default class QNav extends Component {
             }}
           >
             <Nav.Item>
-              <Link to="/Home" style={style} className="nav-link">
+              <Link
+                onClick={() => {
+                  getComponent("AnsweredQuestions");
+                }}
+                style={style}
+                className="nav-link"
+              >
                 Answered Questions
               </Link>
             </Nav.Item>{" "}
@@ -28,7 +34,13 @@ export default class QNav extends Component {
             }}
           >
             <Nav.Item>
-              <Link to="/Home" style={style} className="nav-link">
+              <Link
+                onClick={() => {
+                  getComponent("UnansweredQuestions");
+                }}
+                style={style}
+                className="nav-link"
+              >
                 Unanswered Questions
               </Link>{" "}
             </Nav.Item>

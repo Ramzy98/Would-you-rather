@@ -4,15 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "./NavBar";
 import { handleReceiveQuestions } from "../actions/questions";
-import Question from "./Question";
 import QNav from "./QNav";
 import { Card } from "react-bootstrap";
+import AnsweredQuestions from "./AnsweredQuestions";
+import UnansweredQuestions from "./UnansweredQuestions";
 
+let component = "";
+export function getComponent(prop) {
+  component = prop;
+}
 class Dashboard extends Component {
   componentDidMount() {
     document.title = "Home";
     this.props.dispatch(handleReceiveQuestions());
-    this.forceUpdate();
   }
   render() {
     return (
@@ -47,11 +51,11 @@ class Dashboard extends Component {
                 <QNav />
               </Card.Header>
               <Card.Body>
-                {Object.keys(this.props.questions).map((id) => (
-                  <ul key={id}>
-                    <Question id={id} />
-                  </ul>
-                ))}
+                {component === "AnsweredQuestions" ? (
+                  <AnsweredQuestions />
+                ) : (
+                  <UnansweredQuestions />
+                )}
               </Card.Body>
             </Card>
           </div>

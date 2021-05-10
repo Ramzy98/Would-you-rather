@@ -14,7 +14,7 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar bg="dark" variant="tabs">
-          <Navbar.Brand href="/Home" style={style}>
+          <Navbar.Brand style={style}>
             <img
               alt="logo"
               src={logo}
