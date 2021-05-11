@@ -1,21 +1,31 @@
 import React, { Component } from "react";
-import { Card, Image, Button } from "react-bootstrap";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Card, Image, Badge, Container, Row, Col } from "react-bootstrap";
+import { GiPodiumWinner, GiPodiumSecond, GiPodiumThird } from "react-icons/gi";
+import { FaAward } from "react-icons/fa";
 
 export default class user extends Component {
   render() {
     return (
       <div>
-        <div style={{ paddingLeft: "3.5%", paddingBottom: "5%" }}>
-          <Card style={{ width: "95%" }}>
-            <Card.Header>{this.props.user.name} asks</Card.Header>{" "}
-            <div>
-              <div style={{ top: "100%" }}>
+        <Container>
+          <Row>
+            <Card style={{ margin: "auto", width: "50%" }}>
+              <div style={{ float: "left" }}>
+                <Card.Header>
+                  {this.props.index === 0 ? (
+                    <GiPodiumWinner size={"5%"} />
+                  ) : this.props.index === 1 ? (
+                    <GiPodiumSecond size={"5%"} />
+                  ) : this.props.index === 2 ? (
+                    <GiPodiumThird size={"5%"} />
+                  ) : (
+                    <FaAward size={"16%"} />
+                  )}{" "}
+                  {this.props.user.name}
+                </Card.Header>
                 <Image
                   style={{
-                    padding: "0.1rem",
-                    width: "20%",
+                    width: "15%",
                     pointerEvents: "none",
                     float: "left",
                     postion: "inherit",
@@ -24,31 +34,61 @@ export default class user extends Component {
                   src={this.props.user.avatarURL}
                   roundedCircle
                 />
+                <hr
+                  style={{
+                    borderLeft: "1px solid hsla(100, 10%, 50%,10)",
+                    height: "6rem",
+                    width: "1px",
+                    float: "left",
+                  }}
+                />{" "}
+                <Col style={{ textAlign: "center" }}>
+                  <div
+                    style={{
+                      paddingTop: "1%",
+                      paddingBottom: "1%",
+                    }}
+                  >
+                    <Card
+                      style={{
+                        float: "right",
+                        width: "14%",
+                      }}
+                    >
+                      <div>
+                        <h6 style={{ paddingTop: "4%" }}>Score</h6>
+                        <hr />
+                        <Badge
+                          style={{ float: "top", fontSize: "100%" }}
+                          pill
+                          variant="info"
+                        >
+                          {Object.keys(this.props.user.answers).length +
+                            Object.keys(this.props.user.questions).length}
+                        </Badge>
+                      </div>
+                    </Card>
+                  </div>
+                  <h6>
+                    {" "}
+                    <br />
+                    Answered Questions
+                    <span
+                      style={{ display: "inline-block", width: "20%" }}
+                    ></span>
+                    {Object.keys(this.props.user.answers).length}
+                    <br /> <br />
+                    Asked questions{" "}
+                    <span
+                      style={{ display: "inline-block", width: "25%" }}
+                    ></span>
+                    {Object.keys(this.props.user.questions).length}
+                  </h6>{" "}
+                </Col>{" "}
               </div>
-              <hr
-                style={{
-                  border: "none",
-                  borderLeft: "1px solid hsla(200, 10%, 50%,100)",
-                  height: "6rem",
-                  width: "1px",
-                  float: "left",
-                  postion: "fixed",
-                }}
-              />
-              <h5 style={{ paddingTop: "1%", paddingLeft: "22%" }}>
-                Would you rather
-              </h5>{" "}
-              <p
-                style={{
-                  color: "#808080",
-                  paddingLeft: "22%",
-                  content: "a",
-                }}
-              ></p>{" "}
-              <div style={{ paddingLeft: "21%", paddingRight: "1%" }}></div>
-            </div>
-          </Card>{" "}
-        </div>
+            </Card>{" "}
+          </Row>
+        </Container>
       </div>
     );
   }

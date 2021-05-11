@@ -15,17 +15,32 @@ class LeaderBoard extends Component {
             textAlign: "center",
           }}
         >
-          Example heading <GiTrophyCup />
+          Leader Board
+          <GiTrophyCup />
         </h1>{" "}
-        {Object.keys(this.props.users).map((user) => {
-          return <User user={user} />;
+        {this.props.sorted.map((user) => {
+          return (
+            <User
+              user={this.props.users[user]}
+              index={this.props.sorted.indexOf(user)}
+            />
+          );
         })}
+        {console.log(this.props.sorted)}
       </div>
     );
   }
 }
 function mapStateToProps({ users }) {
   return {
+    sorted: Object.keys(users)
+      .sort(
+        (a, b) =>
+          users[a].answers.length +
+          users[a].questions.length -
+          (users[b].answers.length + users[b].questions.length)
+      )
+      .reverse(),
     users,
   };
 }
