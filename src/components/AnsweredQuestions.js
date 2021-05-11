@@ -15,9 +15,22 @@ class AnsweredQuestions extends Component {
         >
           Answered Questions
         </h4>
-        {this.props.answeredQuestions.map((question) => (
-          <Question key={question} id={question} />
-        ))}
+        {this.props.answeredQuestions.length > 0 ? (
+          this.props.answeredQuestions.map((question) => (
+            <Question key={question} id={question} />
+          ))
+        ) : (
+          <h6
+            style={{
+              textAlign: "center",
+              color: "#A0A0A0",
+              fontFamily: "Century Gothic,Lucida Sans",
+            }}
+          >
+            No answered questions :/
+          </h6>
+        )}
+        {}
       </div>
     );
   }

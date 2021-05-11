@@ -18,6 +18,7 @@ export default class QNav extends Component {
           >
             <Nav.Item>
               <Link
+                to="#"
                 onClick={() => {
                   getComponent("AnsweredQuestions");
                 }}
@@ -35,6 +36,7 @@ export default class QNav extends Component {
           >
             <Nav.Item>
               <Link
+                to="#"
                 onClick={() => {
                   getComponent("UnansweredQuestions");
                 }}

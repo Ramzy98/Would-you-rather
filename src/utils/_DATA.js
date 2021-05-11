@@ -2,7 +2,7 @@ let users = {
   ricksanchez: {
     id: "ricksanchez",
     name: "Rick Sanchez",
-    avatarURL: "https://i.postimg.cc/WhVRQwmk/rick.jpg",
+    avatarURL: "https://i.postimg.cc/0zz2LTdY/rick.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -79,8 +79,8 @@ let questions = {
     author: "ricksanchez",
     timestamp: 1482579767190,
     optionOne: {
-      votes: [],
-      text: "be a front-end developer",
+      votes: ["ricksanchez"],
+      text: "be a pickle",
     },
     optionTwo: {
       votes: ["summersmith"],

@@ -33,7 +33,6 @@ export class LoginPage extends Component {
             <Card style={{ width: "25rem" }}>
               <Card.Img size="xs" variant="top" src={reactReduxLogo} />
               <Card.Body>
-                {console.log(this.props, "PRPOPSSSSSSs")}
                 <Card.Title>Welcome to the would you rather app!</Card.Title>
                 <Form>
                   <Form.Group controlId="formBasicPassword">
@@ -74,7 +73,7 @@ export class LoginPage extends Component {
                       </Dropdown.Menu>
                     </Dropdown>
                   </Form.Group>
-                  <Link to="/Home" className="nav-link">
+                  <Link to="/home" className="nav-link">
                     {" "}
                     <Button
                       size="lg"

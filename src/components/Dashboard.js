@@ -51,10 +51,10 @@ class Dashboard extends Component {
                 <QNav />
               </Card.Header>
               <Card.Body>
-                {component === "AnsweredQuestions" ? (
-                  <AnsweredQuestions />
-                ) : (
+                {component === "UnansweredQuestions" ? (
                   <UnansweredQuestions />
+                ) : (
+                  <AnsweredQuestions />
                 )}
               </Card.Body>
             </Card>
