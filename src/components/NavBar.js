@@ -27,7 +27,7 @@ class NavBar extends Component {
           <Link to="/home" style={style} className="nav-link">
             Home
           </Link>{" "}
-          <Link to="" style={style} className="nav-link">
+          <Link to="/newquestion" style={style} className="nav-link">
             New Question
           </Link>
           <Link to="/leaderboard" style={style} className="nav-link">

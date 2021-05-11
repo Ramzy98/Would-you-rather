@@ -1,4 +1,8 @@
-import { RECEIVE_QUESTIONS, SUBMIT_ANSWER } from "../actions/questions";
+import {
+  RECEIVE_QUESTIONS,
+  SUBMIT_ANSWER,
+  ADD_QUESTION,
+} from "../actions/questions";
 export default function questions(state = {}, action) {
   switch (action.type) {
     case RECEIVE_QUESTIONS:
@@ -12,6 +16,11 @@ export default function questions(state = {}, action) {
             action.autheUser
           ),
         },
+      };
+    case ADD_QUESTION:
+      return {
+        ...state,
+        [action.id]: action,
       };
     default:
       return state;

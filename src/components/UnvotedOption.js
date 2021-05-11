@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, ProgressBar } from "react-bootstrap";
 import { handleSubmitAnswer } from "../actions/questions";
+import { handleChangeAddUserAnswer } from "../actions/users";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 
@@ -35,6 +36,13 @@ class UnvotedOption extends Component {
                   this.props.option
                 )
               );
+              this.props.dispatch(
+                handleChangeAddUserAnswer(
+                  this.props.authedUser,
+                  this.props.id,
+                  this.props.option
+                )
+              );
               this.setState({
                 toHome: true,
               });
@@ -50,8 +58,14 @@ class UnvotedOption extends Component {
             </Card.Text>
             <Card.Title>
               <ProgressBar
-                now={Math.round(this.props.precentage)}
-                label={`${Math.round(this.props.precentage)}%`}
+                now={
+                  this.props.precentage ? Math.round(this.props.precentage) : 0
+                }
+                label={
+                  this.props.precentage
+                    ? `${Math.round(this.props.precentage)}%`
+                    : 0
+                }
               />{" "}
               <h6 style={{ paddingTop: "2%", textAlign: "center" }}>
                 {this.props.current} of {this.props.total} votes
