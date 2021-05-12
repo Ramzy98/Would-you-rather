@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import guest from "../utils/guest.jpg";
 import logo from "../utils/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 const style = {
   color: "#1E90FF",
@@ -70,7 +70,7 @@ class NavBar extends Component {
                     src={guest}
                     roundedCircle
                   />{" "}
-                  Guest
+                  <Redirect to="/" />
                 </Dropdown.Toggle>
               )}
               <Dropdown.Menu>
