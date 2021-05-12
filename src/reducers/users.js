@@ -15,7 +15,14 @@ export default function users(state = {}, action) {
           },
         },
       };
-
+    /*case ADD_QUESTION_USER:
+      return {
+        ...state,
+        [action.author]: {
+          ...state[action.author],
+          questions: { ...state[action.questions], ...action.qid },
+        },
+      };*/
     default:
       return state;
   }
