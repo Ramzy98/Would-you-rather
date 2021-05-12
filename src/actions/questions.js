@@ -7,6 +7,8 @@ import { showLoading, hideLoading } from "react-redux-loading";
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const SUBMIT_ANSWER = "SUBMIT_ANSWER";
 export const ADD_QUESTION = "ADD_QUESTION";
+export const ADD_QUESTION_USER = "ADD_QUESTION";
+
 function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,

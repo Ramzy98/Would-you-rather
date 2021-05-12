@@ -8,6 +8,7 @@ import QNav from "./QNav";
 import { Card } from "react-bootstrap";
 import AnsweredQuestions from "./AnsweredQuestions";
 import UnansweredQuestions from "./UnansweredQuestions";
+import { handleReceiveUsers } from "../actions/users";
 
 let component = "";
 export function getComponent(prop) {
@@ -17,6 +18,7 @@ class Dashboard extends Component {
   componentDidMount() {
     document.title = "Home";
     this.props.dispatch(handleReceiveQuestions());
+    this.props.dispatch(handleReceiveUsers());
   }
   render() {
     return (

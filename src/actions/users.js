@@ -18,13 +18,7 @@ function changeAddUserAnswer(authedUser, qid, answer) {
     answer,
   };
 }
-function addQuestion(author, qid) {
-  return {
-    type: ADD_QUESTION_USER,
-    author,
-    qid,
-  };
-}
+
 export function handleReceiveUsers() {
   return (dispatch) => {
     dispatch(showLoading());
@@ -37,11 +31,5 @@ export function handleReceiveUsers() {
 export function handleChangeAddUserAnswer(authedUser, qid, answer) {
   return (dispatch) => {
     dispatch(changeAddUserAnswer(authedUser, qid, answer));
-  };
-}
-
-export function handleAddQuestionUser(author, qid) {
-  return (dispatch) => {
-    dispatch(addQuestion(author, qid));
   };
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Card, ProgressBar } from "react-bootstrap";
 import { handleSubmitAnswer } from "../actions/questions";
-import { handleChangeAddUserAnswer } from "../actions/users";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 
@@ -36,13 +35,7 @@ class UnvotedOption extends Component {
                   this.props.option
                 )
               );
-              this.props.dispatch(
-                handleChangeAddUserAnswer(
-                  this.props.authedUser,
-                  this.props.id,
-                  this.props.option
-                )
-              );
+
               this.setState({
                 toHome: true,
               });
