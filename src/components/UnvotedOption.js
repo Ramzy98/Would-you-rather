@@ -46,9 +46,7 @@ class UnvotedOption extends Component {
         >
           <Card.Body>
             {" "}
-            <Card.Text>
-              <h5>{this.props.text} </h5>
-            </Card.Text>
+            <Card.Title>{this.props.text}</Card.Title>
             <Card.Title>
               <ProgressBar
                 now={

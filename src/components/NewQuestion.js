@@ -41,7 +41,6 @@ class NewQuestion extends Component {
               type="text"
               placeholder="Option 1"
             />
-            {console.log("query", this.state.query, optionOne)}
             <h5 style={{ textAlign: "center" }}>OR</h5>
             <Form.Control
               value={optionTwo}

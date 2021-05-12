@@ -79,7 +79,7 @@ export class LoginPage extends Component {
                       size="lg"
                       variant="primary"
                       type="submit"
-                      disabled={this.state.name == ""}
+                      disabled={this.state.name === ""}
                       onClick={() => {
                         this.props.dispatch(handleSetAuthedUser(this.state.id));
                       }}

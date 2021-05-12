@@ -10,6 +10,9 @@ const style = {
   fontFamily: "Century Gothic,Lucida Sans",
 };
 class NavBar extends Component {
+  componentDidMount() {
+    this.forceUpdate();
+  }
   render() {
     return (
       <div>
@@ -27,7 +30,7 @@ class NavBar extends Component {
           <Link to="/home" style={style} className="nav-link">
             Home
           </Link>{" "}
-          <Link to="/newquestion" style={style} className="nav-link">
+          <Link to="/add" style={style} className="nav-link">
             New Question
           </Link>
           <Link to="/leaderboard" style={style} className="nav-link">

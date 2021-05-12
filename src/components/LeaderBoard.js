@@ -21,6 +21,7 @@ class LeaderBoard extends Component {
         {this.props.sorted.map((user) => {
           return (
             <User
+              key={this.props.users[user].id}
               user={this.props.users[user]}
               index={this.props.sorted.indexOf(user)}
             />
@@ -36,9 +37,9 @@ function mapStateToProps({ users }) {
     sorted: Object.keys(users)
       .sort(
         (a, b) =>
-          users[a].answers.length +
+          Object.keys(users[a].answers).length +
           users[a].questions.length -
-          (users[b].answers.length + users[b].questions.length)
+          (Object.keys(users[b].answers).length + users[b].questions.length)
       )
       .reverse(),
     users,

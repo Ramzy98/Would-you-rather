@@ -15,9 +15,9 @@ class AnsweredQuestions extends Component {
         >
           Answered Questions
         </h4>
-        {this.props.answeredQuestions.length > 0 ? (
-          this.props.answeredQuestions.map((question) => (
-            <Question key={question} id={question} />
+        {this.props.sortable.length > 0 ? (
+          this.props.sortable.map((question) => (
+            <Question key={question} id={question[1].id} />
           ))
         ) : (
           <h6
@@ -30,17 +30,35 @@ class AnsweredQuestions extends Component {
             No answered questions :/
           </h6>
         )}
-        {}
       </div>
     );
   }
 }
 function mapStateToProps({ questions, authedUser }) {
-  let answeredQuestions = Object.keys(questions).filter(
-    (question) =>
-      questions[question].optionOne.votes.includes(authedUser) ||
-      questions[question].optionTwo.votes.includes(authedUser)
-  );
-  return { answeredQuestions, authedUser };
+  let answeredQuestions = Object.keys(questions)
+    .filter(
+      (question) =>
+        questions[question].optionOne.votes.includes(authedUser) ||
+        questions[question].optionTwo.votes.includes(authedUser)
+    )
+    .map((question) => {
+      return {
+        id: questions[question].id,
+        timestamp: questions[question].timestamp,
+      };
+    });
+  var sortable = [];
+  for (var vehicle in answeredQuestions) {
+    sortable.push([vehicle, answeredQuestions[vehicle]]);
+  }
+
+  sortable.sort(function (a, b) {
+    return a[1] - b[1];
+  });
+  sortable.reverse();
+  return {
+    sortable,
+    authedUser,
+  };
 }
 export default connect(mapStateToProps)(AnsweredQuestions);
