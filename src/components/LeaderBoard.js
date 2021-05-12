@@ -26,7 +26,6 @@ class LeaderBoard extends Component {
             />
           );
         })}
-        {console.log(this.props.sorted)}
       </div>
     );
   }
