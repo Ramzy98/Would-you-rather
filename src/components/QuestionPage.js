@@ -177,11 +177,12 @@ class QuestionPage extends Component {
   }
 }
 function mapStateToProps({ questions, authedUser, users }, props) {
-  const { id } = props.match.params;
+  const { question_id } = props.match.params;
+  console.log(props.match.params);
   return {
-    QInfo: questions[id],
+    QInfo: questions[question_id],
     authedUser,
-    user: questions[id] ? users[questions[id].author] : null,
+    user: questions[question_id] ? users[questions[question_id].author] : null,
   };
 }
 export default connect(mapStateToProps)(QuestionPage);
