@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { Card, ProgressBar } from "react-bootstrap";
 import { handleSubmitAnswer } from "../actions/questions";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 class UnvotedOption extends Component {
   state = {
-    toHome: "",
+    toHome: false,
   };
   render() {
-    if (this.state.toHome !== "")
-      return <Link to={`/questions/${this.props.id}`} />;
+    if (this.state.toHome === true) return <Redirect to="/" />;
     return (
       <div style={{ cursor: "pointer", paddingLeft: "31%" }}>
         <Card
@@ -36,7 +35,7 @@ class UnvotedOption extends Component {
               );
 
               this.setState({
-                toHome: this.props.id,
+                toHome: true,
               });
             } else {
               alert("You've already voted!");
