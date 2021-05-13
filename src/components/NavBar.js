@@ -27,7 +27,7 @@ class NavBar extends Component {
             />{" "}
             Would you rather
           </Navbar.Brand>
-          <Link to="/home" style={style} className="nav-link">
+          <Link to="/" style={style} className="nav-link">
             Home
           </Link>{" "}
           <Link to="/add" style={style} className="nav-link">

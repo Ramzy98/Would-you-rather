@@ -6,23 +6,31 @@ import QuestionPage from "./QuestionPage";
 import LeaderBoard from "./LeaderBoard";
 import NewQuestion from "./NewQuestion";
 import { connect } from "react-redux";
-/*import { handleReceiveUsers } from "../actions/users";
+import { handleReceiveUsers } from "../actions/users";
 import { handleReceiveQuestions } from "../actions/questions";
-import { handleSetAuthedUser } from "../actions/authedUser";*/
 
 class App extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.dispatch(handleReceiveQuestions());
+    this.props.dispatch(handleReceiveUsers());
+  }
+
   render() {
     return (
-      <Router>
-        <Fragment>
-          <Route path="/" exact component={LoginPage} />
-          <Route path="/home" component={Dashboard} />
-          <Route path="/question/:question_id" component={QuestionPage} />
-          <Route path="/leaderboard" component={LeaderBoard} />{" "}
-          <Route path="/add" component={NewQuestion} />
-        </Fragment>
-      </Router>
+      <Fragment>
+        {!this.props.authedUser ? (
+          <LoginPage />
+        ) : (
+          <Router>
+            <div>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/questions/:question_id" component={QuestionPage} />
+              <Route path="/leaderboard" component={LeaderBoard} />{" "}
+              <Route path="/add" component={NewQuestion} />
+            </div>{" "}
+          </Router>
+        )}
+      </Fragment>
     );
   }
 }

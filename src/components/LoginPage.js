@@ -5,7 +5,6 @@ import { handleSetAuthedUser } from "../actions/authedUser";
 import { handleReceiveUsers } from "../actions/users";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
-import { Link } from "react-router-dom";
 
 export class LoginPage extends Component {
   state = { name: "", id: "" };
@@ -72,22 +71,19 @@ export class LoginPage extends Component {
                         })}
                       </Dropdown.Menu>
                     </Dropdown>
-                  </Form.Group>
-                  <Link to="/home" className="nav-link">
-                    {" "}
-                    <Button
-                      size="lg"
-                      variant="primary"
-                      type="submit"
-                      disabled={this.state.name === ""}
-                      onClick={() => {
-                        this.props.dispatch(handleSetAuthedUser(this.state.id));
-                      }}
-                      block
-                    >
-                      Login
-                    </Button>
-                  </Link>{" "}
+                  </Form.Group>{" "}
+                  <Button
+                    size="lg"
+                    variant="primary"
+                    type="submit"
+                    disabled={this.state.name === ""}
+                    onClick={() => {
+                      this.props.dispatch(handleSetAuthedUser(this.state.id));
+                    }}
+                    block
+                  >
+                    Login
+                  </Button>
                 </Form>
               </Card.Body>
             </Card>

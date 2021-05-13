@@ -44,7 +44,7 @@ class Question extends Component {
               </p>{" "}
               <div style={{ paddingLeft: "21%", paddingRight: "1%" }}>
                 <Link
-                  to={`/question/${this.props.QInfo.id}`}
+                  to={`/questions/${this.props.QInfo.id}`}
                   className="nav-link"
                 >
                   <Button
@@ -75,6 +75,7 @@ function mapStateToProps({ questions, authedUser, users }, { id }) {
     QInfo: id ? questions[id] : null,
     authedUser,
     user: users[questions[id].author],
+    questions,
   };
 }
 export default connect(mapStateToProps)(Question);

@@ -24,7 +24,7 @@ class NewQuestion extends Component {
     }));
   };
   render() {
-    if (this.state.toHome === true) return <Redirect to="/home" />;
+    if (this.state.toHome === true) return <Redirect to="/" />;
     const optionOne = this.state.query.optionOne;
     const optionTwo = this.state.query.optionTwo;
 

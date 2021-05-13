@@ -6,6 +6,9 @@ import UnvotedOption from "./UnvotedOption";
 import VotedOption from "./VotedOption";
 import NotFound from "./NotFound";
 class QuestionPage extends Component {
+  componentWillReceiveProps() {
+    this.setState({});
+  }
   render() {
     return (
       <div>
@@ -177,9 +180,12 @@ class QuestionPage extends Component {
   }
 }
 function mapStateToProps({ questions, authedUser, users }, props) {
-  const { question_id } = props.match.params;
-  console.log(props.match.params);
+  console.log(props);
+  const { question_id } =
+    Object.keys(props).length > 0 ? props.match.params : "null";
+
   return {
+    question_id,
     QInfo: questions[question_id],
     authedUser,
     user: questions[question_id] ? users[questions[question_id].author] : null,
