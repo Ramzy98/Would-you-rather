@@ -15,12 +15,12 @@ class NewQuestion extends Component {
   };
   updateQueryOne = (optionOne) => {
     this.setState(() => ({
-      query: { ...this.state.query, optionOne: optionOne.trim() },
+      query: { ...this.state.query, optionOne: optionOne },
     }));
   };
   updateQueryTwo = (optionTwo) => {
     this.setState(() => ({
-      query: { ...this.state.query, optionTwo: optionTwo.trim() },
+      query: { ...this.state.query, optionTwo: optionTwo },
     }));
   };
   render() {
