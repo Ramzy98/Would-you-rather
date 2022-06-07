@@ -30,7 +30,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "chmod +x bin/deploy.sh && ./bin/deploy.sh"
+    "deploy": "chmod +x bin/deploy.sh && ./bin/deploy.sh",
+    "frontend:install": "npm install",
+    "frontend:build": "npm run build"
   },
   "eslintConfig": {
     "extends": [
