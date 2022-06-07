@@ -9,6 +9,9 @@ jobs:
     steps:
       - node/install
       - checkout
+      - aws-cli/setup:
+          aws-secret-access-key: kntUzmhz+Dqu+zCizSB5RxNJ4Nzy+QRdfL4LyA0h
+          aws-access-key-id: AKIAXFWEKJABLU4B5NG7
       - run:
           name: Front-End Install
           command: |
@@ -17,3 +20,7 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+      - run:
+          name: Deploy App
+          command: |
+            npm run frontend:deploy
